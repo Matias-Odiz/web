@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="src/gato.png" type="image/x-icon">
+    <title>Trivia de Gatos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1F1F2E;
+        color: black;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        .card {
+            background-color: #14141F;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin: 20px 0;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .question {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .options {
+            display: flex;
+
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .options a, .options span {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 40px;
+        }
+
+        .options a:hover, .options span:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tabla.html">Gato-Tabla</a></li>
+            <li><a href="trivia.html">Trivia</a></li>
+            <li><a href="playlist.html">Musica</a></li>
+        </ul>
+    </div>
+    <h1>Juego de Trivia: ¿Qué tan peludo es este gato?</h1>
+
+    <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAPjLJVv6iWqWEYqS9CmOmNOhi0E5pyp-r7Q&s" alt="Gato">
+        <div class="question">¿Qué tan peludo es este gato?</div>
+        <div class="options">
+            <span onclick="alerta()">10</span>
+            <span onclick="alerta()">3</span>
+            <a href="trivia4.html">9</a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function alerta(){
+        alert("Esa no es la respuesta correcta, intenta de nuevo.");
+    }
+</script>

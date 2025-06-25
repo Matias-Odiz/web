@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="src/gato.png" type="image/x-icon">
+    <title>playlist</title>
+</head>
+
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tabla.html">Gato-Tabla</a></li>
+            <li><a href="trivia.html">Trivia</a></li>
+            <li><a href="playlist.html">Musica</a></li>
+        </ul>
+    </div>
+    <div class="playlist">
+        <aside class="aside">
+            <div class="aside-card">
+                <a class="link" href="#" onclick="changeVideo('https://www.youtube.com/watch?v=3B5BcgMHalI','Maru, el famoso gato japonés, demuestra su habilidad para saltar dentro de cajas, ¡sin importar el tamaño!','Maru enseña a saltar a una caja')">Gato caja</a>
+                <a class="link" href="#" onclick="changeVideo('https://www.youtube.com/watch?v=8e6XP6Q3rWm','Un gato se enfrenta a su reflejo por primera vez y reacciona de manera hilarante, creyendo que es otro gato.','Gato descubre su reflejo en el espejo')">Gato Espejo</a>
+                <a class="link" href="#" onclick="changeVideo('https://www.youtube.com/watch?v=KNGj597KnwVQ9nToMwt5ewHaES','La reacción celosa de un gato al ver que su dueña acaricia a otro gato es simplemente adorable.','Gato celoso ve a su dueña acariciando a otro felino')">Gato celoso</a>
+                <a class="link" href="#" onclick="changeVideo('https://www.youtube.com/watch?v=l6x6ZWtCtdpuSSInrpZOxwHaD4','Un gato decide que es hora de atención y bloquea la pantalla del celular de su dueño mientras revisa Facebook.','Gato interrumpe a su dueño en el almuerzo para pedirle atención')">Gato Atencion</a>
+                <a class="link" href="#" onclick="changeVideo('https://www.youtube.com/watch?v=J---aiyznGQ','El icónico video de una gata tocando el piano se ha convertido en un fenómeno viral, ¡no te lo puedes perder!','Gato tocando el piano')">Gato Pianista</a>
+            </div>
+
+        </aside>
+        <section class="main">
+            <p class="tituloM" id="titulo">Video</p>
+            <iframe id="videoFrame" class="media" width="560" height="315" src="https://www.youtube.com/embed/pd8plw0kdpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p id="text" class="texto">Descripcion</p>
+        </section>
+    </div>
+
+    <script>
+        function changeVideo(url,texto,titulo) {
+            document.getElementById('videoFrame').src = url;
+            document.getElementById('text').innerText = texto;
+            document.getElementById('titulo').innerText = titulo;
+
+        }
+    </script>
+</body>
+
+</html>
