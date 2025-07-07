@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Matias Odiz</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="overflow">
+    <header >
+        <h1>Calculadora Básica</h1>
+        <p>Realiza operaciones matemáticas simples de manera rápida y fácil.</p>   
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="botonera.html">Botonera de Sonidos</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+            </ul>
+        </nav>  
+    </header>
+
+    <section class="calculadora-container">
+        <div class="calculadora-titulo">Calculadora</div>
+        <input type="text" class="calculadora-pantalla" id="pantalla" disabled maxlength="18">
+        <div class="calculadora-botones">
+            <button class="calc-btn" onclick="agregarNumero('7')">7</button>
+            <button class="calc-btn" onclick="agregarNumero('8')">8</button>
+            <button class="calc-btn" onclick="agregarNumero('9')">9</button>
+            <button class="calc-btn operador" onclick="agregarOperador('/')">/</button>
+            <button class="calc-btn" onclick="agregarNumero('4')">4</button>
+            <button class="calc-btn" onclick="agregarNumero('5')">5</button>
+            <button class="calc-btn" onclick="agregarNumero('6')">6</button>
+            <button class="calc-btn operador" onclick="agregarOperador('*')">*</button>
+            <button class="calc-btn" onclick="agregarNumero('1')">1</button>
+            <button class="calc-btn" onclick="agregarNumero('2')">2</button>
+            <button class="calc-btn" onclick="agregarNumero('3')">3</button>
+            <button class="calc-btn operador" onclick="agregarOperador('-')">-</button>
+            <button class="calc-btn" onclick="agregarNumero('0')">0</button>
+            <button class="calc-btn" onclick="agregarPunto()">.</button>
+            <button class="calc-btn" onclick="borrar()">C</button>
+            <button class="calc-btn operador" onclick="agregarOperador('+')">+</button>
+            <button class="calc-btn" style="grid-column: span 4;" onclick="calcularResultado()">=</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Matias Odiz. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let pantalla = document.getElementById('pantalla');
+        let operacion = "";
+
+        function agregarNumero(num) {
+            if (pantalla.value.length < 18) {
+                operacion += num;
+                pantalla.value = operacion;
+            }
+        }
+
+        function agregarOperador(op) {
+            if (operacion === "") return;
+            if ("+-*/".includes(operacion.slice(-1))) {
+                operacion = operacion.slice(0, -1);
+            }
+            operacion += op;
+            pantalla.value = operacion;
+        }
+
+        function agregarPunto() {
+            let partes = operacion.split(/[\+\-\*\/]/);
+            let ultimaParte = partes[partes.length - 1];
+            if (!ultimaParte.includes('.')) {
+                operacion += '.';
+                pantalla.value = operacion;
+            }
+        }
+
+        function borrar() {
+            operacion = "";
+            pantalla.value = "";
+        }
+
+        function calcularResultado() {
+            try {
+                let resultado = eval(operacion);
+                pantalla.value = resultado;
+                operacion = resultado.toString();
+            } catch {
+                pantalla.value = "Error";
+                operacion = "";
+            }
+        }
+    </script>
+</body>
+</html>

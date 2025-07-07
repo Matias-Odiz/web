@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botonera de Sonidos - Matias Odiz</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Botonera de Sonidos</h1>
+        <p>Haz clic en los botones para reproducir diferentes sonidos.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="botonera.html">Botonera de Sonidos</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="botonera-nueva-container">
+        <h2 class="botonera-titulo">Elige tu sonido favorito</h2>
+        <div class="botonera-grid">
+            <div class="sound-card">
+                <div class="sound-icon">💨</div>
+                <button class="sound-btn-circular" onclick="playSong('sonido-1.mp3')">💨</button>
+            </div>
+            <div class="sound-card">
+                <div class="sound-icon">🦘</div>
+                <button class="sound-btn-circular" onclick="playSong('sonido-2.mp3')">🦘</button>
+            </div>
+            <div class="sound-card">
+                <div class="sound-icon">⏰</div>
+                <button class="sound-btn-circular" onclick="playSong('sonido-3.mp3')">⏰</button>
+            </div>
+            <div class="sound-card">
+                <div class="sound-icon">🗣️</div>
+                <button class="sound-btn-circular" onclick="playSong('sonido-4.mp3')">🗣️</button>
+            </div>
+            <div class="sound-card">
+                <div class="sound-icon">🐱</div>
+                <button class="sound-btn-circular" onclick="playSong('sonido-5.mp3')">🐱</button>
+            </div>
+            <div class="sound-card">
+                <div class="sound-icon">🦆</div>
+                <button class="sound-btn-circular" onclick="playSong('sonido-6.mp3')">🦆</button>
+            </div>
+        </div>
+    </section>
+    <audio id="audioPlayer"></audio>
+
+    <footer class="footer">
+        <p>&copy; 2025 Matias Odiz. Todos los derechos reservados.</p>
+    </footer>
+
+    <script >
+        let timeoutId = null;
+        function playSong(file) {
+            const audio = document.getElementById('audioPlayer');
+            audio.src = 'sonidos/' + file;
+            audio.currentTime = 0;
+            audio.play();
+            if (timeoutId) clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                audio.pause();
+                audio.currentTime = 0;
+            }, 30000); 
+        }
+    </script>
+</body>
+</html>
